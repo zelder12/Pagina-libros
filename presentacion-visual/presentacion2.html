@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/estiloPresentaciones.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div id="branding">
+                <h1>Catálogo de Libros</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html#libros">Libros</a></li>
+                    <li><a href="../index.html#presentaciones">Presentaciones</a></li>
+                </ul>
+            </nav>
+            <!-- Botón de Modo Oscuro -->
+            <button id="theme-toggle">Modo Oscuro</button>
+        </div>
+    </header>
+
+    <div class="pdf-viewer" id="pdf-viewer">
+        <canvas id="pdf-canvas"></canvas>
+        <div class="controls" id="pdf-controls">
+            <button id="prev-btn" onclick="prevPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6" width="15" height="15">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                </svg>
+            </button>
+            <span id="page-num"></span> / <span id="page-count"></span>
+            <button id="next-btn" onclick="nextPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6" width="15" height="15">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                </svg>
+            </button>
+            <input type="number" id="page-selector" min="1" placeholder="Ir a página" />
+            <button id="go-to-page" onclick="goToPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6" width="15" height="15">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+
+            </button>
+            <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                </svg>
+
+            </button>
+        </div>
+    </div>
+
+    <div class="navigation-links">
+        <a id="prev-presentation-link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        </a>
+        <a href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </a>
+        <a id="next-presentation-link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        </a>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contacto</h3>
+                <p>Teléfono: +503 1234-5678</p>
+                <p>Email: contacto@catalogodelibros.com</p>
+                <p>Síguenos en:
+                    <a href="#">Facebook</a> |
+                    <a href="#">Twitter</a> |
+                    <a href="#">Instagram</a>
+                </p>
+            </div>
+            <div class="comment-form">
+                <h3>Déjanos tu comentario</h3>
+                <form>
+                    <textarea placeholder="Escribe tu reseña aquí..." rows="4"></textarea>
+                    <br>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <p>Todos los derechos reservados &copy - Catalogo Libros</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        function moveSlide(step) {
+            const items = document.querySelectorAll('.carousel-item');
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + step + items.length) % items.length;
+            items[currentIndex].classList.add('active');
+        }
+
+        function toggleFullscreen() {
+            const viewer = document.getElementById('pdf-viewer');
+            const btn = document.querySelector('.fullscreen-btn');
+            if (!document.fullscreenElement) {
+                viewer.classList.add('fullscreen');
+                viewer.requestFullscreen().catch(err => {
+                    console.log(`Error al entrar en pantalla completa: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const viewer = document.getElementById('pdf-viewer');
+            const btn = document.querySelector('.fullscreen-btn');
+            if (!document.fullscreenElement) {
+                viewer.classList.remove('fullscreen');
+            }
+        });
+        document.addEventListener("keydown", (event) => {
+            const viewer = document.getElementById('pdf-viewer'); // Obtener el contenedor de la presentación
+            if (event.key === "f") { // Verifica si la tecla presionada es 'f'
+                if (!document.fullscreenElement) { // Si no estamos en pantalla completa
+                    viewer.classList.add('fullscreen'); // Agregar la clase de pantalla completa
+                    viewer.requestFullscreen().catch(err => { // Entrar en pantalla completa
+                        console.log(`Error al intentar entrar en pantalla completa: ${err.message}`);
+                    });
+                } else { // Si estamos en pantalla completa
+                    document.exitFullscreen(); // Salir de pantalla completa
+                    viewer.classList.remove('fullscreen'); // Eliminar la clase de pantalla completa
+                }
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+    </script>
+
+    <script src="../js/preScript.js"></script>
+    <script src="../js/dark-light.js"></script>
+</body>
+
+</html>
