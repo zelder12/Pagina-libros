@@ -4,6 +4,8 @@ if (window.location.pathname.includes('presentacion1.html')) {
     url = '../presentacion-txt/pre_libro1.pdf';
 } else if (window.location.pathname.includes('presentacion2.html')) {
     url = '../presentacion-txt/pre_libro2.pdf';
+} else if (window.location.pathname.includes('presentacion3.html')) {
+    url = '../presentacion-txt/pre_libro3.pdf';
 } else {
     console.error('No se encontró un presentacion para esta página.');
 }
