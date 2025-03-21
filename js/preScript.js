@@ -1,6 +1,5 @@
 var url = '';
 
-let url;  
 if (window.location.pathname.includes('presentacion1.html')) {  
     url = '../presentacion-txt/pre_libro1.pdf';  
 } else if (window.location.pathname.includes('presentacion2.html')) {  
