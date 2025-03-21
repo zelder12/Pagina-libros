@@ -1,0 +1,347 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ededed;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../img/bg_2.svg);
+    background-size: 150px;
+    background-attachment: fixed;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: left;
+}
+
+
+body.dark-mode {
+    background-color: #333;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../img/bg_1.svg);
+    color: #ffffff;
+}
+body.dark-mode .book a svg{
+    color: white;
+}
+
+
+/* Títulos y párrafos */
+.showcase h1, .showcase p {
+    color: #000;
+}
+
+body.dark-mode .showcase h1, body.dark-mode .showcase p {
+    color: #fff;
+}
+
+.container{
+    background-color: rgba(192, 192, 192, 0.8);
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: #77aaff 3px solid;
+}
+
+body.dark-mode header {
+    background: #1e1e1e;
+}
+
+header .header {
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Asegura que los elementos se acomoden correctamente en pantallas pequeñas */
+}
+
+header #branding {
+    flex: 1;
+}
+
+header #branding h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+header li {
+    margin: 0 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de Modo Oscuro */
+#theme-toggle {
+    color: white;
+    background: #545454;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    width: 150px;
+    flex-shrink: 0; /* Evita que el botón se reduzca de tamaño en pantallas pequeñas */
+    margin-left: auto; /* Alinea el botón a la derecha */
+}
+
+#theme-toggle:hover {
+    background: #c4c4c4;
+    transform: scale(1.05);
+}
+
+/* Showcase Styles */
+.showcase {
+    text-align: center;
+    padding: 50px 0;
+    color: white;
+}
+
+.showcase h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.showcase p {
+    font-size: 20px;
+}
+
+/* Book Section Styles */
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.book {
+    background: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.book p{
+    text-align: justify;
+}
+
+body.dark-mode .book {
+    background: #333;
+    border-color: #444;
+    color: #fff;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book img {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.book h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.book p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.book a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+body.dark-mode .book a {
+    color: #80c4ff;
+}
+
+.book a:hover {
+    text-decoration: underline;
+}
+
+.sub-tema {
+    color: #000;
+    text-align: center;
+}
+body.dark-mode .sub-tema{
+    color: #fff;
+}
+
+body.dark-mode .container{
+    background-color: rgba(54, 54, 54, 0.8);
+}
+
+
+/* Estilos para el botón de cambio de tema */
+#theme-toggle {
+    color: white;
+    background: #545454;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    width: 150px;
+}
+
+#theme-toggle:hover {
+    background: #c4c4c4;
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contact-info, .comment-form {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+}
+
+.contact-info h3, .comment-form h3 {
+    color: #f8c102;
+}
+
+.contact-info a {
+    color: #f8c102;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+    font-size: 14px;
+}
+
+.comment-form button {
+    background-color: #f8c102;
+    color: #222;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.comment-form button:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .showcase h1 {
+        font-size: 40px;
+    }
+
+    .showcase p {
+        font-size: 18px;
+    }
+
+    header #branding h1 {
+        margin: 10px auto;
+        font-size: 24px;
+    }
+
+    .book-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-summary, .pdf-viewer {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    header .header {
+        display: inline;
+        width: 100vw;
+        margin: auto;
+    }
+
+    header .header button{
+        margin: 10px auto;
+    }
+    .header ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .header ul li{
+        margin: 10px auto;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+    }
+}

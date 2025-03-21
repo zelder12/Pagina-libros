@@ -1,0 +1,247 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+canvas {
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    display: block;
+    background: white;
+    width: 100%; /* El canvas ocupa el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto, ajustando la altura */
+    max-width: 100%; /* No puede exceder el ancho del contenedor */
+}
+
+.controls {
+    margin: 10px auto;
+}
+.controls span{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(192, 192, 192, 0.9);
+}
+body.dark-mode .controls span{
+    background-color: rgba(54, 54, 54, 0.9);
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button:disabled {
+    background: #ccc;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+.book-summary {
+    background-color: rgba(192, 192, 192, 0.9);
+    height: auto;
+    width: 50%;
+    padding: 15px;
+    margin: 10px 40px;
+    border-radius: 5px;
+}
+body.dark-mode .book-summary{
+    background-color: rgba(54, 54, 54, 0.9);
+}
+.pdf-viewer {
+    width: 65%;
+}
+
+.navigation-links {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap:100px;
+    margin: 10px auto;
+    padding: 10px 0;
+}
+
+.navigation-links a svg{
+    width: 50px; 
+    height: 50px;
+}
+
+.navigation-links a{
+    color: #333;
+    text-decoration: none;
+}
+body.dark-mode .navigation-links a{
+    color: #f4f4f4;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Relación 16:9 (9 / 16 = 0.5625 -> 56.25%) */
+    height: 0; /* Asegura que el contenedor tenga altura relativa */
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-summary, .pdf-viewer {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .navigation-links {
+        gap: 10px;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+    }
+    .video-container {
+        padding-top: 56.25%; /* Mantén la relación 16:9 también en pantallas pequeñas */
+    }
+    .navigation-links a svg{
+        width: 30px; 
+        height: 30px;
+    }
+}
+
+/* Estilos movidos desde los archivos HTML */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item p{
+    line-height: 1.5; 
+    text-align: justify;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: -10%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.pdf-viewer {
+    position: relative;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen canvas {
+    width: 40%;
+    height: auto;
+    margin: 0;
+}
+
+.fullscreen .controls,
+.fullscreen .fullscreen-btn {
+    display: none;
+}
+
+body.dark-mode .fullscreen {
+    background: #222;
+    color: white;
+}
+
+/* Estilos adicionales para mejorar la capacidad de respuesta */
+@media (max-width: 480px) {
+    .carousel-container {
+        width: 100%;
+    }
+
+    .fullscreen canvas {
+        width: 80%;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+    }
+}
+

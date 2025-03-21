@@ -1,0 +1,152 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+canvas {
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    display: block;
+    background: white;
+}
+
+.controls {
+    margin-top: 10px;
+}
+.controls span{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(192, 192, 192, 0.9);
+}
+body.dark-mode .controls span{
+    background-color: rgba(54, 54, 54, 0.9);
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+button:disabled {
+    background: #ccc;
+}
+
+.navigation-links {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap:100px;
+    margin: 10px auto;
+    padding: 10px 0;
+}
+
+.navigation-links a svg{
+    width: 50px; 
+    height: 50px;
+}
+
+.navigation-links a{
+    color: #333;
+    text-decoration: none;
+}
+body.dark-mode .navigation-links a{
+    color: #f4f4f4;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation-links {
+        gap: 10px;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+    }
+    .navigation-links a svg{
+        width: 30px; 
+        height: 30px;
+    }
+}
+
+/* Estilos movidos desde los archivos HTML */
+.pdf-viewer {
+    position: relative;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen canvas {
+    width: 80%;
+    height: auto;
+    margin: 0;
+}
+
+.fullscreen .controls,
+.fullscreen .fullscreen-btn {
+    display: none;
+}
+
+body.dark-mode .fullscreen {
+    background: #222;
+    color: white;
+}
+
+/* Estilos adicionales para mejorar la capacidad de respuesta */
+@media (max-width: 480px) {
+    .fullscreen canvas {
+        width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+    }
+}
