@@ -4,9 +4,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ededed;
-    background-image: 
+    /*background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../img/bg_2.svg);
+        url(../img/bg_2.svg);*/
     background-size: 150px;
     background-attachment: fixed;
     color: #333;
@@ -17,9 +17,9 @@ body {
 
 body.dark-mode {
     background-color: #333;
-    background-image: 
+    /*background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../img/bg_1.svg);
+        url(../img/bg_1.svg);*/
     color: #ffffff;
 }
 body.dark-mode .book a svg{
